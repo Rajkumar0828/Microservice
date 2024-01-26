@@ -1,0 +1,19 @@
+[TestFixture]
+public class MobileControllerTests
+{
+    private ApiDbContext GetTestDbContext()
+    {
+        var options = new DbContextOptionsBuilder<ApiDbContext>()
+            .UseMySql("your_test_connection_string")
+            .Options;
+
+        var dbContext = new ApiDbContext(options);
+
+        // Ensure the database is created
+        dbContext.Database.EnsureCreated();
+
+        return dbContext;
+    }
+
+    // ... rest of the test methods ...
+}
