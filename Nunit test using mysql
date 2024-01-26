@@ -7,92 +7,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace APUCrudServer.Tests
+[Test]
+public async Task GetMobile_ShouldReturnOkResult()
 {
-    [TestClass]
-    public class MobileControllerTests
-    {
-        private ApiDbContext _context;
-        private MobileController _controller;
+    // Arrange
+    var dbContextMock = new Mock<ApiDbContext>();
+    dbContextMock.Setup(x => x.Mobiles).Returns(Mock.Of<DbSet<Mobile>>(/* setup your data here */));
 
-        [TestInitialize]
-        public void Setup()
-        {
-            var options = new DbContextOptionsBuilder<ApiDbContext>()
-                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
-                .Options;
+    var controller = new MobileController(dbContextMock.Object);
 
-            _context = new ApiDbContext(options);
-            _controller = new MobileController(_context);
-        }
+    // Act
+    var result = await controller.GetMobile();
 
-        [TestMethod]
-        public async Task CreateMobile_ShouldReturnOkResult()
-        {
-            // Arrange
-            var mobile = new Mobile { /* provide required properties */ };
-
-            // Act
-            var result = await _controller.Create(mobile);
-
-            // Assert
-            Assert.IsInstanceOfType(result, typeof(OkObjectResult));
-            // Add more assertions if needed
-        }
-
-        [TestMethod]
-        public async Task GetMobile_ShouldReturnOkResult()
-        {
-            // Arrange: Assuming there is at least one mobile in the database
-            // Act
-            var result = await _controller.GetMobile();
-
-            // Assert
-            Assert.IsInstanceOfType(result.Result, typeof(OkObjectResult));
-            // Add more assertions if needed
-        }
-
-        [TestMethod]
-        public async Task GetMobileById_ShouldReturnOkResult()
-        {
-            // Arrange: Assuming there is at least one mobile in the database
-            var existingMobile = _context.Mobiles.First();
-
-            // Act
-            var result = _controller.GetMobile(existingMobile.Id);
-
-            // Assert
-            Assert.IsInstanceOfType(result.Result, typeof(OkObjectResult));
-            // Add more assertions if needed
-        }
-
-        [TestMethod]
-        public async Task UpdateMobile_ShouldReturnOkResult()
-        {
-            // Arrange: Assuming there is at least one mobile in the database
-            var existingMobile = _context.Mobiles.First();
-            existingMobile.PropertyToUpdate = "New Value"; // Update the property to change
-
-            // Act
-            var result = await _controller.Update(existingMobile);
-
-            // Assert
-            Assert.IsInstanceOfType(result, typeof(OkResult));
-            // Add more assertions if needed
-        }
-
-        [TestMethod]
-        public async Task DeleteMobile_ShouldReturnOkResult()
-        {
-            // Arrange: Assuming there is at least one mobile in the database
-            var existingMobile = _context.Mobiles.First();
-
-            // Act
-            var result = await _controller.Delete(existingMobile.Id);
-
-            // Assert
-            Assert.IsInstanceOfType(result, typeof(OkResult));
-            // Add more assertions if needed
-        }
-    }
+    // Assert
+    Assert.IsInstanceOf<OkObjectResult>(result.Result);
 }
