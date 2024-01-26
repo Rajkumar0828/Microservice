@@ -91,3 +91,6 @@ namespace APICrudServer.Tests
         }
     }
 }
+
+error message:
+system.notsupportedException: unsupported expression: x=> x.Mobiles Non-overridable member (here: ApiDbcontext.get_Mobiles) may not be used in setup /verification expression.
