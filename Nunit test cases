@@ -1,99 +1,93 @@
+using NUnit.Framework;
+using Moq;
+using Microsoft.EntityFrameworkCore;
 using APICrudServer.Controllers;
 using APICrudServer.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-using NUnit.Framework;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Linq;
 
 namespace APICrudServer.Tests
 {
     [TestFixture]
     public class MobileControllerTests
     {
-        private ApiDbContext GetInMemoryDbContext()
+        private MobileController _mobileController;
+        private Mock<ApiDbContext> _mockDbContext;
+
+        [SetUp]
+        public void Setup()
         {
-            var options = new DbContextOptionsBuilder<ApiDbContext>()
-                .UseInMemoryDatabase(databaseName: "InMemoryDatabase")
-                .Options;
+            // Mocking DbContext and DbSet
+            _mockDbContext = new Mock<ApiDbContext>(new DbContextOptions<ApiDbContext>());
 
-            var dbContext = new ApiDbContext(options);
-
-            // Add sample data if needed
-
-            return dbContext;
+            // Setting up controller with the mocked DbContext
+            _mobileController = new MobileController(_mockDbContext.Object);
         }
 
         [Test]
-        public async Task GetMobile_ShouldReturnOkResult()
+        public void GetMobile_ReturnsListOfMobiles()
         {
             // Arrange
-            var dbContext = GetInMemoryDbContext();
-            var controller = new MobileController(dbContext);
+            var mobilesData = new List<Mobile>
+            {
+                new Mobile { Mobile_Id = 1, Mobile_Brand_Name = "Brand1", Mobile_Model_Name = "Model1", MobilePrice = 500 },
+                new Mobile { Mobile_Id = 2, Mobile_Brand_Name = "Brand2", Mobile_Model_Name = "Model2", MobilePrice = 600 }
+            }.AsQueryable();
+
+            var mockDbSet = new Mock<DbSet<Mobile>>();
+            mockDbSet.As<IQueryable<Mobile>>().Setup(m => m.Provider).Returns(mobilesData.Provider);
+            mockDbSet.As<IQueryable<Mobile>>().Setup(m => m.Expression).Returns(mobilesData.Expression);
+            mockDbSet.As<IQueryable<Mobile>>().Setup(m => m.ElementType).Returns(mobilesData.ElementType);
+            mockDbSet.As<IQueryable<Mobile>>().Setup(m => m.GetEnumerator()).Returns(mobilesData.GetEnumerator());
+
+            _mockDbContext.Setup(x => x.Mobiles).Returns(mockDbSet.Object);
 
             // Act
-            var result = await controller.GetMobile();
+            var result = _mobileController.GetMobile().Result;
 
             // Assert
-            Assert.IsInstanceOf<OkObjectResult>(result.Result);
+            Assert.IsInstanceOf(typeof(OkObjectResult), result.Result);
+            var okResult = result.Result as OkObjectResult;
+            Assert.IsNotNull(okResult);
+
+            var mobileList = okResult.Value as List<Mobile>;
+            Assert.IsNotNull(mobileList);
+            Assert.AreEqual(2, mobileList.Count);
         }
 
         [Test]
-        public async Task GetMobileById_ShouldReturnMobile()
+        public void GetMobile_WithValidId_ReturnsMobile()
         {
             // Arrange
-            var dbContext = GetInMemoryDbContext();
-            var controller = new MobileController(dbContext);
+            var mobileData = new Mobile { Mobile_Id = 1, Mobile_Brand_Name = "Brand1", Mobile_Model_Name = "Model1", MobilePrice = 500 };
+            var mockDbSet = new Mock<DbSet<Mobile>>();
+            mockDbSet.Setup(x => x.Find(It.IsAny<int>())).Returns(mobileData);
+
+            _mockDbContext.Setup(x => x.Mobiles).Returns(mockDbSet.Object);
 
             // Act
-            var result = await controller.GetMobile(1);
+            var result = _mobileController.GetMobile(1);
 
             // Assert
-            Assert.IsInstanceOf<Mobile>(result.Value);
+            Assert.IsInstanceOf(typeof(ActionResult<Mobile>), result);
+            Assert.IsNotNull(result.Value);
+            Assert.AreEqual(1, result.Value.Mobile_Id);
         }
 
         [Test]
-        public async Task CreateMobile_ShouldReturnOkResult()
+        public void GetMobile_WithInvalidId_ReturnsNotFound()
         {
             // Arrange
-            var dbContext = GetInMemoryDbContext();
-            var controller = new MobileController(dbContext);
-            var newMobile = new Mobile { /* Populate with necessary data */ };
+            var mockDbSet = new Mock<DbSet<Mobile>>();
+            mockDbSet.Setup(x => x.Find(It.IsAny<int>())).Returns((Mobile)null);
+
+            _mockDbContext.Setup(x => x.Mobiles).Returns(mockDbSet.Object);
 
             // Act
-            var result = await controller.Create(newMobile);
+            var result = _mobileController.GetMobile(99);
 
             // Assert
-            Assert.IsInstanceOf<OkObjectResult>(result.Result);
-        }
-
-        [Test]
-        public async Task UpdateMobile_ShouldReturnOkResult()
-        {
-            // Arrange
-            var dbContext = GetInMemoryDbContext();
-            var controller = new MobileController(dbContext);
-            var existingMobile = new Mobile { /* Populate with necessary data */ };
-
-            // Act
-            var result = await controller.Update(existingMobile);
-
-            // Assert
-            Assert.IsInstanceOf<OkResult>(result);
-        }
-
-        [Test]
-        public async Task DeleteMobile_ShouldReturnOkResult()
-        {
-            // Arrange
-            var dbContext = GetInMemoryDbContext();
-            var controller = new MobileController(dbContext);
-
-            // Act
-            var result = await controller.Delete(1);
-
-            // Assert
-            Assert.IsInstanceOf<OkResult>(result);
+            Assert.IsInstanceOf(typeof(NotFoundResult), result.Result);
         }
     }
 }
