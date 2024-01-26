@@ -1,0 +1,136 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+using APICrudServer.Data;
+using System.Collections.Generic;
+using System.Linq;
+
+// Interface for ApiDbContext
+public interface IApiDbContext
+{
+    DbSet<Mobile> Mobiles { get; set; }
+}
+
+// Modify ApiDbContext to implement the interface
+public class ApiDbContext : DbContext, IApiDbContext
+{
+    public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
+    {
+    }
+
+    public virtual DbSet<Mobile> Mobiles { get; set; }
+}
+
+// Modify MobileController to accept IApiDbContext
+public class MobileController : ControllerBase
+{
+    private readonly IApiDbContext _context;
+
+    public MobileController(IApiDbContext context)
+    {
+        _context = context;
+    }
+
+    [HttpGet]
+    public ActionResult<List<Mobile>> GetMobile()
+    {
+        return Ok(_context.Mobiles.ToList());
+    }
+
+    [HttpGet("{id}")]
+    public ActionResult<Mobile> GetMobile(int id)
+    {
+        var mobile = _context.Mobiles.Find(id);
+        if (mobile == null)
+        {
+            return NotFound();
+        }
+        return mobile;
+    }
+}
+
+// Modify the tests to use IApiDbContext
+[TestFixture]
+public class MobileControllerTests
+{
+    private MobileController _mobileController;
+    private Mock<IApiDbContext> _mockDbContext;
+
+    [SetUp]
+    public void Setup()
+    {
+        // Mocking IApiDbContext and DbSet
+        _mockDbContext = new Mock<IApiDbContext>();
+
+        // Setting up controller with the mocked IApiDbContext
+        _mobileController = new MobileController(_mockDbContext.Object);
+    }
+
+    [Test]
+    public void GetMobile_ReturnsListOfMobiles()
+    {
+        // Arrange
+        var mobilesData = new List<Mobile>
+        {
+            new Mobile { Mobile_Id = 1, Mobile_Brand_Name = "Brand1", Mobile_Model_Name = "Model1", MobilePrice = 500 },
+            new Mobile { Mobile_Id = 2, Mobile_Brand_Name = "Brand2", Mobile_Model_Name = "Model2", MobilePrice = 600 }
+        };
+
+        _mockDbContext.Setup(x => x.Mobiles).ReturnsDbSet(mobilesData);
+
+        // Act
+        var result = _mobileController.GetMobile();
+
+        // Assert
+        Assert.IsInstanceOf(typeof(OkObjectResult), result.Result);
+        var okResult = result.Result as OkObjectResult;
+        Assert.IsNotNull(okResult);
+
+        var mobileList = okResult.Value as List<Mobile>;
+        Assert.IsNotNull(mobileList);
+        Assert.AreEqual(2, mobileList.Count);
+    }
+
+    [Test]
+    public void GetMobile_WithValidId_ReturnsMobile()
+    {
+        // Arrange
+        var mobileData = new Mobile { Mobile_Id = 1, Mobile_Brand_Name = "Brand1", Mobile_Model_Name = "Model1", MobilePrice = 500 };
+
+        _mockDbContext.Setup(x => x.Mobiles.Find(It.IsAny<int>())).Returns(mobileData);
+
+        // Act
+        var result = _mobileController.GetMobile(1);
+
+        // Assert
+        Assert.IsInstanceOf(typeof(ActionResult<Mobile>), result);
+        Assert.IsNotNull(result.Value);
+        Assert.AreEqual(1, result.Value.Mobile_Id);
+    }
+
+    [Test]
+    public void GetMobile_WithInvalidId_ReturnsNotFound()
+    {
+        // Arrange
+        _mockDbContext.Setup(x => x.Mobiles.Find(It.IsAny<int>())).Returns((Mobile)null);
+
+        // Act
+        var result = _mobileController.GetMobile(99);
+
+        // Assert
+        Assert.IsInstanceOf(typeof(NotFoundResult), result.Result);
+    }
+}
+
+public static class DbSetExtensions
+{
+    public static void ReturnsDbSet<T>(this Mock<IApiDbContext> mockDbContext, IQueryable<T> data) where T : class
+    {
+        var mockDbSet = new Mock<DbSet<T>>();
+        mockDbSet.As<IQueryable<T>>().Setup(m => m.Provider).Returns(data.Provider);
+        mockDbSet.As<IQueryable<T>>().Setup(m => m.Expression).Returns(data.Expression);
+        mockDbSet.As<IQueryable<T>>().Setup(m => m.ElementType).Returns(data.ElementType);
+        mockDbSet.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+
+        mockDbContext.Setup(x => x.Mobiles).Returns(mockDbSet.Object);
+    }
+}
