@@ -1,0 +1,99 @@
+using APICrudServer.Controllers;
+using APICrudServer.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+using NUnit.Framework;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace APICrudServer.Tests
+{
+    [TestFixture]
+    public class MobileControllerTests
+    {
+        private ApiDbContext GetInMemoryDbContext()
+        {
+            var options = new DbContextOptionsBuilder<ApiDbContext>()
+                .UseInMemoryDatabase(databaseName: "InMemoryDatabase")
+                .Options;
+
+            var dbContext = new ApiDbContext(options);
+
+            // Add sample data if needed
+
+            return dbContext;
+        }
+
+        [Test]
+        public async Task GetMobile_ShouldReturnOkResult()
+        {
+            // Arrange
+            var dbContext = GetInMemoryDbContext();
+            var controller = new MobileController(dbContext);
+
+            // Act
+            var result = await controller.GetMobile();
+
+            // Assert
+            Assert.IsInstanceOf<OkObjectResult>(result.Result);
+        }
+
+        [Test]
+        public async Task GetMobileById_ShouldReturnMobile()
+        {
+            // Arrange
+            var dbContext = GetInMemoryDbContext();
+            var controller = new MobileController(dbContext);
+
+            // Act
+            var result = await controller.GetMobile(1);
+
+            // Assert
+            Assert.IsInstanceOf<Mobile>(result.Value);
+        }
+
+        [Test]
+        public async Task CreateMobile_ShouldReturnOkResult()
+        {
+            // Arrange
+            var dbContext = GetInMemoryDbContext();
+            var controller = new MobileController(dbContext);
+            var newMobile = new Mobile { /* Populate with necessary data */ };
+
+            // Act
+            var result = await controller.Create(newMobile);
+
+            // Assert
+            Assert.IsInstanceOf<OkObjectResult>(result.Result);
+        }
+
+        [Test]
+        public async Task UpdateMobile_ShouldReturnOkResult()
+        {
+            // Arrange
+            var dbContext = GetInMemoryDbContext();
+            var controller = new MobileController(dbContext);
+            var existingMobile = new Mobile { /* Populate with necessary data */ };
+
+            // Act
+            var result = await controller.Update(existingMobile);
+
+            // Assert
+            Assert.IsInstanceOf<OkResult>(result);
+        }
+
+        [Test]
+        public async Task DeleteMobile_ShouldReturnOkResult()
+        {
+            // Arrange
+            var dbContext = GetInMemoryDbContext();
+            var controller = new MobileController(dbContext);
+
+            // Act
+            var result = await controller.Delete(1);
+
+            // Assert
+            Assert.IsInstanceOf<OkResult>(result);
+        }
+    }
+}
