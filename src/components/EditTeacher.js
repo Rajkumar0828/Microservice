@@ -4,12 +4,13 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 const EditTeacher = () => {
     const navigate = useNavigate();
+
     const [mobile_Brand_Name, setBrandname] = useState([""]);
     const [mobile_Model_Name, setmodelname] = useState([""]);
     const [mobilePrice, setprice] = useState([""]);
     // const [location, setlocation] = useState([""]);
     const params = useParams();
-    const [mobile_Id, setMobileId] = useState(params.id ?? 0);
+      const [mobile_Id, setMobileId] = useState(params.id ?? 0);
     const handleSignupForm = async event => {
         event.preventDefault();
         const headers = {
@@ -17,13 +18,14 @@ const EditTeacher = () => {
             'Content-Type': 'application/json',
         }
         let param = {
+
             mobile_Brand_Name: mobile_Brand_Name,
             mobile_Model_Name: mobile_Model_Name,
             mobilePrice: mobilePrice,
             // location: location,
-            id: mobile_Id
+            mobile_Id: mobile_Id
         }
-        let URL = "http://localhost:5111/MobileUpdate";
+        let URL = "http://localhost:5111/Mobileupdate";
         const response = await axios.put(URL, param, {
             headers: headers
         });
@@ -48,7 +50,6 @@ const EditTeacher = () => {
             const response = await axios.get(URL, {
                 headers: headers
             })
-
             if (response != null && response != undefined && response.data.length != undefined) {
 
                 setBrandname(response.data.mobile_Brand_Name);
@@ -93,8 +94,8 @@ const EditTeacher = () => {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="exampleInputEmail">Mobile Model </label>
-                        <input type="email" className="form-control"
+                        <label htmlFor="exampleInputName">Mobile Model </label>
+                        <input type="text" className="form-control"
                             placeholder="Enter Mobile Model" id="mobile_Model_Name" name="mobile_Model_Name"
                             required={true}
                             value={mobile_Model_Name}
@@ -119,8 +120,9 @@ const EditTeacher = () => {
                             onChange={(e) => setlocation(e.target.value)}
                         />
                     </div> */}
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    <a className="btn btn-success" href="TeacherList">TeacherList</a>
+                     <button type="submit" className="btn btn-primary">Submit</button>
+                    {/* <button type="submit" className="btn btn-primary">Submit</button> */}
+                    <a className="btn btn-success" href="TeacherList">Back</a>
                 </form>
             </div>
         </>

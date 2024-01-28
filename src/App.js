@@ -9,7 +9,9 @@ export default class App extends Component {
 
   render() {
     return (
+      
       <Layout>
+        
         <Routes>
           {AppRoutes.map((route, index) => {
             const { element, ...rest } = route;

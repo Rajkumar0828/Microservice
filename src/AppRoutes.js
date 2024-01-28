@@ -6,7 +6,8 @@ import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
-import TeacherList from "./components/TeacherList";
+import MobileList from "./components/MobileList";
+import TeacherList from "./components/MobileList";
 
 const AppRoutes = [
   {
@@ -31,7 +32,7 @@ const AppRoutes = [
   },
   {
     path: '/teacherlist',
-    element: <TeacherList />
+    element: <MobileList />
   },
   {
     path: '/editteacher/:id',

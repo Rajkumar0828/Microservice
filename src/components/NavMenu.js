@@ -24,7 +24,21 @@ export class NavMenu extends Component {
   render() {
     return (
       <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" container light>
+        <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">RELEVANTZ Mobiles</a>
+    
+    <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
+    <NavLink tag={Link} className="text-dark" to="/teacherlist">Mobile List</NavLink>
+    <NavLink tag={Link} className="text-dark" to="/login">Login</NavLink>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+ 
+        {/* <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" container light>
           <NavbarBrand tag={Link} to="/">ReactMVC</NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
@@ -40,7 +54,7 @@ export class NavMenu extends Component {
               </NavItem>
             </ul>
           </Collapse>
-        </Navbar>
+        </Navbar> */}
       </header>
     );
   }

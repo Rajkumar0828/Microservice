@@ -75,7 +75,7 @@ const CreateTeacher = () => {
                         />
                     </div> */}
                     <button type="submit" className="btn btn-primary">Submit</button>
-                    <a className="btn btn-success" href="UsersList">UserList</a>
+                    <a className="btn btn-success" href="TeacherList">Back</a>
                 </form>
             </div>
         </>
