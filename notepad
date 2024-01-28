@@ -1,1 +1,59 @@
-npm install --save-dev react-test-renderer
+import React from 'react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import axios from 'axios';
+import MobileList from './MobileList';
+
+jest.mock('axios');
+
+describe('MobileList Component', () => {
+  it('renders mobile list and handles delete link click', async () => {
+    // Mocking axios.get response
+    axios.get.mockResolvedValue({
+      data: [
+        {
+          mobile_Id: 1,
+          mobile_Brand_Name: 'Samsung',
+          mobile_Model_Name: 'Galaxy S21',
+          mobilePrice: 999.99,
+        },
+        // Add more mock data as needed
+      ],
+    });
+
+    // Render the component
+    render(<MobileList />);
+
+    // Check if the component renders the mobile list correctly
+    await waitFor(() => {
+      expect(screen.getByText('Mobile List')).toBeInTheDocument();
+      expect(screen.getByText('Add Mobiles')).toBeInTheDocument();
+      expect(screen.getByText('Mobile Id')).toBeInTheDocument();
+      expect(screen.getByText('Mobile Brand')).toBeInTheDocument();
+      expect(screen.getByText('Mobile Model')).toBeInTheDocument();
+      expect(screen.getByText('Mobile Price')).toBeInTheDocument();
+      expect(screen.getByText('Options')).toBeInTheDocument();
+      expect(screen.getByText('Samsung')).toBeInTheDocument();
+      expect(screen.getByText('Galaxy S21')).toBeInTheDocument();
+      expect(screen.getByText('999.99')).toBeInTheDocument();
+      expect(screen.getByText('Edit')).toBeInTheDocument();
+      expect(screen.getByText('Delete')).toBeInTheDocument();
+    });
+
+    // Mocking axios.delete response for delete link click
+    axios.delete.mockResolvedValue({});
+
+    // Simulate clicking the delete link
+    userEvent.click(screen.getByText('Delete'));
+
+    // Check if axios.delete is called with the correct URL
+    await waitFor(() => {
+      expect(axios.delete).toHaveBeenCalledWith('http://localhost:5111/deleteteacher/1', {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      });
+    });
+  });
+});
