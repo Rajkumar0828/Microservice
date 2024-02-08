@@ -1,0 +1,79 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/ api/Mobile",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5063
+                }
+            ],
+            "UpstreamPathTemplate": "/MobileList",
+            "UpstreamHttpMethod": [
+                "GET"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/ api/Mobile/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5063
+                }
+            ],
+            "UpstreamPathTemplate": "/MobileList/{id}",
+            "UpstreamHttpMethod": [
+                "GET"
+            ]
+        },
+        
+
+        {
+            "DownstreamPathTemplate": "/ api/Mobile",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5063
+                }
+            ],
+            "UpstreamPathTemplate": "/MobileCreate",
+            "UpstreamHttpMethod": [
+                "POST"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/ api/Mobile",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5063
+                }
+            ],
+            "UpstreamPathTemplate": "/Mobileupdate",
+            "UpstreamHttpMethod": [
+                "PUT"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/ api/Mobile/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5063
+                }
+            ],
+            "UpstreamPathTemplate": "/MobileDelete/{id}",
+            "UpstreamHttpMethod": [
+                "DELETE"
+            ]
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "https://localhost:5000"
+    }
+}

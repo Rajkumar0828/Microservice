@@ -1,0 +1,86 @@
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\appsettings.json
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\ocelot.json
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\APIOcelot.exe
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\APIOcelot.deps.json
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\APIOcelot.runtimeconfig.json
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\APIOcelot.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\APIOcelot.pdb
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\IPAddressRange.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\Microsoft.AspNetCore.MiddlewareAnalysis.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\Microsoft.Extensions.DiagnosticAdapter.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\Ocelot.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\APIOcelot.csproj.AssemblyReference.cache
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\APIOcelot.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\APIOcelot.AssemblyInfoInputs.cache
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\APIOcelot.AssemblyInfo.cs
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\APIOcelot.csproj.CoreCompileInputs.cache
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\APIOcelot.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\APIOcelot.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\staticwebassets\msbuild.APIOcelot.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\staticwebassets\msbuild.build.APIOcelot.props
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.APIOcelot.props
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.APIOcelot.props
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\scopedcss\bundle\APIOcelot.styles.css
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\APIOcelot.csproj.CopyComplete
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\APIOcelot.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\refint\APIOcelot.dll
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\APIOcelot.pdb
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\APIOcelot.genruntimeconfig.cache
+C:\Users\rajkumar.ramanathan\Desktop\Microservice assesmen\APIOcelot\obj\Debug\net7.0\ref\APIOcelot.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\appsettings.Development.json
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\appsettings.json
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\ocelot.json
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\APIOcelot.exe
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\APIOcelot.deps.json
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\APIOcelot.runtimeconfig.json
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\APIOcelot.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\APIOcelot.pdb
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\FluentValidation.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\IPAddressRange.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\Microsoft.AspNetCore.MiddlewareAnalysis.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\Microsoft.Extensions.DiagnosticAdapter.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\Microsoft.OpenApi.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\Ocelot.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Microservice and React\Mircoservice\APIOcelot\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\APIOcelot.csproj.AssemblyReference.cache
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\APIOcelot.GeneratedMSBuildEditorConfig.editorconfig
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\APIOcelot.AssemblyInfoInputs.cache
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\APIOcelot.AssemblyInfo.cs
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\APIOcelot.csproj.CoreCompileInputs.cache
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\APIOcelot.MvcApplicationPartsAssemblyInfo.cs
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\APIOcelot.MvcApplicationPartsAssemblyInfo.cache
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\staticwebassets.build.json
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\staticwebassets.development.json
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\staticwebassets\msbuild.APIOcelot.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\staticwebassets\msbuild.build.APIOcelot.props
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.APIOcelot.props
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.APIOcelot.props
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\staticwebassets.pack.json
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\scopedcss\bundle\APIOcelot.styles.css
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\APIOcelot.csproj.CopyComplete
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\APIOcelot.dll
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\refint\APIOcelot.dll
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\APIOcelot.pdb
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\APIOcelot.genruntimeconfig.cache
+D:\Microservice and React\Mircoservice\APIOcelot\obj\Debug\net7.0\ref\APIOcelot.dll
